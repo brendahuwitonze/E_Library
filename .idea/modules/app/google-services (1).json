@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "841143016468",
+    "project_id": "books-8ab24",
+    "storage_bucket": "books-8ab24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841143016468:android:a8cb844236e5d41b389b01",
+        "android_client_info": {
+          "package_name": "com.moringaschool.books"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841143016468-bbq8n91ec00r01daim806uvo9hmeeib7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.books",
+            "certificate_hash": "08cde366e569c3ec9c52a8d6c8b0ed3d748896f2"
+          }
+        },
+        {
+          "client_id": "841143016468-oo982an2jedrpkifskfjbgnqkatl8e5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6JN_rKlUpE14T6yH6mWXmxc2CdoTntSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841143016468-oo982an2jedrpkifskfjbgnqkatl8e5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
