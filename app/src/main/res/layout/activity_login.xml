@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="CreateAccountActivity"
+    tools:context="LoginActivity"
     android:background="@color/purple_500">
 
     <LinearLayout
@@ -17,19 +17,6 @@
         android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:hint="Name"
-            android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/teal_200"
-            android:textSize="20sp" />
-
-        <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +27,7 @@
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textColorHint="@color/purple_200"
+            android:textColorHint="@color/black"
             android:textSize="20sp" />
 
         <EditText
@@ -52,45 +39,30 @@
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/confirmPasswordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/teal_200"
             android:textSize="20sp" />
 
 
         <Button
-            android:id="@+id/createUserButton"
+            android:id="@+id/passwordLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Sign up"
-            android:background="@color/white"
+            android:text="Log in"
+            android:background="@color/purple_500"
             android:layout_marginTop="15dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:text="Already have an account? Log in here!"
-            android:id="@+id/loginTextView"
+            android:text="Don't have an account? Sign up here!"
+            android:id="@+id/registerTextView"
             android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
@@ -98,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="Login"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
