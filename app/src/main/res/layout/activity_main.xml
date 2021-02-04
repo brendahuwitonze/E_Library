@@ -10,36 +10,20 @@
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="cursive"
-        android:text="INTRESTING BOOKS"
+        android:text="pOST THE BOOK"
         android:textSize="35dp" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="113dp"
-        android:layout_marginLeft="113dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="-113dp"
-        android:layout_marginRight="-113dp"
-        android:focusable="true"
-        android:text="you can view more details about the books you like "
-        android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6" />
+        android:textSize="35dp"
+        android:hint="Enter Title"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="view thebooks" />
+        android:textSize="35dp"
+        android:hint="Enter Author"/>
 
 
 </RelativeLayout>
