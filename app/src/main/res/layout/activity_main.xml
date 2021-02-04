@@ -1,8 +1,9 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
     android:background="@drawable/library">
 
 
@@ -10,20 +11,37 @@
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pOST THE BOOK"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:text="post THE BOOK"
         android:textSize="35dp" />
 
     <EditText
+        android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="35dp"
-        android:hint="Enter Title"/>
+        android:layout_marginTop="150dp"
+        android:hint="Enter Title"
+        android:textSize="35dp" />
 
     <EditText
+        android:id="@+id/text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="35dp"
-        android:hint="Enter Author"/>
+        android:layout_marginTop="250dp"
+        android:hint="Enter Author"
+        android:paddingBottom="50dp"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginBottom="200dp"
+        android:paddingBottom="20dp"
+        android:text="post" />
 
 
 </RelativeLayout>
