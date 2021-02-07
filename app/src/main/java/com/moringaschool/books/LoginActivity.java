@@ -7,20 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    private FirebaseAuth mAuth;
     @BindView(R.id.passwordLoginButton)
     TextView mRegisterTextView;
     @BindView(R.id.registerTextView)
     TextView mRegisterTextView2;
+     private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        mAuth = FirebaseAuth.getInstance();
+        reference = FirebaseDatabase.getInstance().getReference();
         ButterKnife.bind(this);
         mRegisterTextView.setOnClickListener(this);
         mRegisterTextView2.setOnClickListener(this);
