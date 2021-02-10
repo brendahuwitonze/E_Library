@@ -11,8 +11,10 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import butterknife.ButterKnife;
@@ -37,6 +41,7 @@ public class BookListActivity extends AppCompatActivity {
     private BookClient client;
     private ArrayList<Book> abooks;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,7 @@ public class BookListActivity extends AppCompatActivity {
         abooks = new ArrayList<>();
         // Initialize the adapter
         bookAdapter = new BookAdapter(this, abooks);
+        new ItemTouchHelper(itemTouchHelper).attachToRecyclerView(rvBooks);
         bookAdapter.setOnItemClickListener(new BookAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View itemView, int position) {
@@ -107,28 +113,28 @@ public class BookListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_book_list, menu);
+//        inflater.inflate(R.menu.menu_book_list, menu);
         ButterKnife.bind(this);
 
         getMenuInflater().inflate(R.menu.menu_book_list, menu);
         MenuItem menuItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                fetchBooks  (query);
-
-                return false;
-
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                fetchBooks  (query);
+//
+//                return false;
+//
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
         return true;
     }
 
@@ -141,16 +147,19 @@ public class BookListActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
             logout();
-//            user();
+
             return true;
 
+        }
+
+      else if (id ==R.id.user)  {
+            Intent intent = new Intent(BookListActivity.this, showUsers.class);
+            startActivity(intent);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    //       if(id ==R.id.user){
-//
-//    }
     private void logout() {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(BookListActivity.this, LoginActivity.class);
@@ -158,14 +167,21 @@ public class BookListActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-//    private void user() {
-//        FirebaseAuth.getInstance().signOut();
-//        Intent intent = new Intent(BookListActivity.this, showUsers.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//        startActivity(intent);
-//        finish();
-//    }
+    ItemTouchHelper.SimpleCallback itemTouchHelper= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.UP|ItemTouchHelper.DOWN|ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            int position_draged=viewHolder.getAdapterPosition();
+            int position_target= target.getAdapterPosition();
+            Collections.swap(abooks,position_draged,position_target);
+            bookAdapter.notifyItemMoved(position_draged,position_target);
+            return false;
+        }
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            abooks.remove(viewHolder.getAdapterPosition());
+            bookAdapter.notifyDataSetChanged();
+        }
+    };
 
 }
 
