@@ -12,7 +12,9 @@ This is a mobile app on which will find books to read and also be able to recomm
 
 LANGUAGE USED
 
-Android studio Java
+Android studio 
+Java
+postgress
 
 ### LINCENSE
 This project is licensed under the terms of the MIT license. Copyright (c) 2020 UWITONZEBRENDA
