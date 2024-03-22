@@ -3,10 +3,12 @@
 
 ### AUTHOR:UWITONZEBRENDAH
 
-This application will allow users to recommend books to read to friends 
+This is a mobile app on which will find books to read and also be able to recommend to their firends 
 
 ##### BDD
-* user input the username user enters the password then click login
+* user input the username
+* user enters the password to  login
+* chose a book 
 
 LANGUAGE USED
 
